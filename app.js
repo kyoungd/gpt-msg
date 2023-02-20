@@ -1,5 +1,9 @@
 const express = require('express');
+const cors = require('cors'); // Import the CORS middleware
 const app = express();
+
+// Add the CORS middleware
+app.use(cors());
 
 // Serve static files from the public directory
 app.use(express.static('public'));
