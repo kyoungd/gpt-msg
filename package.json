@@ -1,0 +1,25 @@
+{
+  "name": "gpt-msg",
+  "version": "1.0.0",
+  "description": "This open-source repo provided by AssemblyAI displays how to use our real-time API in the browser!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyoungd/gpt-msg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyoungd/gpt-msg/issues"
+  },
+  "homepage": "https://github.com/kyoungd/gpt-msg#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security"
+  }
+}
