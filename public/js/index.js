@@ -34,25 +34,11 @@ class QuietMessage {
     }
 }
 
-function Talk2(text) {
-    let msg = new SpeechSynthesisUtterance(text);
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(msg);
-    console.log(text);
-}
-
-async function Talk(text) {
-    new Promise((resolve) => {
-      IsTalking = false;
-      let msg = new SpeechSynthesisUtterance(text);
-      const voices = window.speechSynthesis.getVoices();
-      speechSynthesis.cancel();
-      speechSynthesis.speak(msg);
-      msg.addEventListener("end", () => {
-        console.log('done speaking...')
+function Talk(text) {
+    IsTalking = false;
+    Speak(text, () => {
+        console.log('.......done speaking');
         IsTalking = true;
-        resolve();
-        });
     });
   }
 
@@ -66,6 +52,7 @@ async function initializeOnce(doIt) {
             callObject = result.callObject;
             Talk(result.message);
             console.log('init message: ', result.message);
+            return true;
         }
     }
     return false;
@@ -73,6 +60,11 @@ async function initializeOnce(doIt) {
 
 // singleton
 let isCommunicatingWithServer = false;
+
+// const run = async () => {
+//     const result = await initializeOnce(true);
+//     console.log(result);
+// }
 
 // runs real-time transcription and handles global variables
 const run = async () => {
@@ -190,7 +182,6 @@ const run = async () => {
 };
 
 buttonEl.addEventListener('click', () => run());
-
 
 // // required dom elements
 // const buttonEl = document.getElementById('button');
